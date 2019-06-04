@@ -4,16 +4,16 @@ class OffersController < ApplicationController
   end
 
   def new
-    @user = User.find(params[:user_id])
+    @user = current_user
     @offer = Offer.new
   end
 
   def create
-    @user = User.find(params[:user_id])
+    @user = current_user
     @offer = Offer.new(offer_params)
     @offer.user = @user
     if @offer.save
-      redirect_to user_path(@user)
+      redirect_to profile_path(@user.id)
     else
       render :new
     end

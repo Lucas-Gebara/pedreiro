@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
   root to: "offers#index"
 
-  devise_for :users do
-    resources :portfolio, except: [:index]
+  devise_for :users
+  resources :users do
+    resources :portfolio, except: [:index, :destroy, :edit, :update]
   end
 
   resources :bookings ,except: [:destroy] do

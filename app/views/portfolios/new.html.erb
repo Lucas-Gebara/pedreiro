@@ -1,6 +1,17 @@
-<h3>Add a portfolio</h3>
-<%= simple_form_for [@user, @portfolio] do |f| %>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Create a portfolio</title>
+</head>
+<body>
+  <div>
+  <h3>Add a portfolio</h3>
+<%= simple_form_for(portfolio) do |f| %>
   <%= f.input :photo %>
-  <%= f.input :description %>
-  <%= f.submit class: "btn btn-primary"%>
+  <%= f.input :photo_cache, as: :hidden %>
+  <%= f.input :description  %>
 <% end %>
+</div>
+
+</body>
+</html>

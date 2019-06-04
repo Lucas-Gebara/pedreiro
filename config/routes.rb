@@ -1,7 +1,12 @@
 Rails.application.routes.draw do
+
+  get 'profiles/:id', to: "profiles#show", as: :profile
+
   root to: "offers#index"
 
   devise_for :users
+  resources :offers, only: [:index, :new, :create, :destroy]
+
   resources :users do
   resources :portfolios, only: [:new, :create]
   end

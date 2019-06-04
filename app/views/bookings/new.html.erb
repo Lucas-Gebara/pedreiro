@@ -1,0 +1,11 @@
+<h1>New Booking</h1>
+
+<%= simple_form_for [@booking, @offer] do |f| %>
+  <%= f.label :start_time %>
+  <%= f.date_field :start_time %>
+
+  <%= f.label :end_time %>
+  <%= f.date_field :end_time %>
+
+  <%= f.submit "create a new offer", class: "btn btn-primary" %>
+<% end %>

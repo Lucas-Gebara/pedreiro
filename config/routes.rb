@@ -1,8 +1,10 @@
 Rails.application.routes.draw do
+
+  get 'profiles/:id', to: "profiles#show", as: :profile
+
   root to: "offers#index"
 
   devise_for :users
-  resources :portfolio, only: [:destroy]# For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   resources :offers, only: [:index, :new, :create, :destroy]
 
   resources :users do

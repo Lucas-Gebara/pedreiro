@@ -1,1 +1,18 @@
 <h1>New Offer</h1>
+
+
+<%= simple_form_for [@offer] do |f| %>
+  <%= f.label :title %>
+  <%= f.text_field :title %>
+
+  <%= f.label :start_time %>
+  <%= f.date_field :start_time %>
+
+  <%= f.label :end_time %>
+  <%= f.date_field :end_time %>
+
+  <%= f.label :description %>
+  <%= f.text_field :description %>
+
+  <%= f.submit "create a new offer", class: "btn btn-primary" %>
+<% end %>

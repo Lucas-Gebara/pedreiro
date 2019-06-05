@@ -1,4 +1,14 @@
-<h1>Profile#show</h1>
-<%= @user.offers.first.title %>
-<%= @user.portfolio.description %>
-<%= cl_image_tag @user.avatar, height: 300, width: 400, crop: :fill %>
+<h1 class="text-center">Profile</h1>
+<div class="card w-75 h-200 align-self-center" style="width: 18rem;">
+  <div class="card-body">
+    <div clas="d-flex justify-content-start">
+    <h5 class="card-title"><%= @user.name %></h5>
+    <p class="card-text"><%= @user.offers.first.title %></p>
+    </div>
+    <div class="card portfolio align-self-end">
+    <img class="portfolio" src=<%=cl_image_tag @user.avatar, height: 100, width: 100, crop: :fill %>
+    <p><%=@user.portfolio.description%></p>
+    </div>
+    <a href="portfolio_path" class="btn btn-primary">Portfolio</a>
+  </div>
+</div>

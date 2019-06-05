@@ -7,9 +7,6 @@ end
 puts "creating users"
 user1 = User.create!(
   name: "vince",
-  address: "gloria",
-  cpf: "123456",
-  phone: "19838498",
   password: "hallooooo",
   email: "vince13@gmail.com",
   portfolio: Portfolio.new(
@@ -20,9 +17,6 @@ user1 = User.create!(
 
 user2 = User.create!(
   name: "lukas",
-  address: "copacabana",
-  cpf: "654321",
-  phone: "9585749",
   password: "holaaaaa",
   email: "lukas007@gmail.com",
   portfolio: Portfolio.new(
@@ -33,9 +27,6 @@ user2 = User.create!(
 
 user3 = User.create!(
   name: "filipe",
-  address: "tijuca",
-  cpf: "5969869",
-  phone: "898385",
   password: "namasteeeee",
   email: "filipe1@gmail.com",
   portfolio: Portfolio.new(

@@ -3,7 +3,7 @@
   <div class="card-body">
     <div clas="d-flex justify-content-start">
     <h5 class="card-title"><%= @user.name %></h5>
-    <p class="card-text"><%= @user.offers.first.title %></p>
+    <p class="card-text"><%=  %></p>
     </div>
     <div class="card portfolio align-self-end">
     <img class="portfolio" src=<%=cl_image_tag @user.avatar, height: 100, width: 100, crop: :fill %>
@@ -12,3 +12,6 @@
     <a href="portfolio_path" class="btn btn-primary">Portfolio</a>
   </div>
 </div>
+
+<%= link_to 'Create a new Offer', new_offer_path %>
+

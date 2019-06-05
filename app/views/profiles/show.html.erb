@@ -1,4 +1,4 @@
-<h1 class="text-center">Profile</h1>
+<h1 class="text-center">PROFILE</h1>
 <div class="card w-75 h-200 align-self-center" style="width: 18rem;">
   <div class="card-body">
     <div clas="d-flex justify-content-start">
@@ -6,12 +6,35 @@
     <p class="card-text"><%=  %></p>
     </div>
     <div class="card portfolio align-self-end">
-    <img class="portfolio" src=<%=cl_image_tag @user.avatar, height: 100, width: 100, crop: :fill %>
+    <%=cl_image_tag @user.avatar, height: 100, width: 100, crop: :fill %>
     <p><%=@user.portfolio.description%></p>
     </div>
     <a href="portfolio_path" class="btn btn-primary">Portfolio</a>
   </div>
 </div>
 
-<%= link_to 'Create a new Offer', new_offer_path %>
+<div class="container">
+<h2>MY OFFERS</h2>
+<ul>
+<% current_user.offers.each do |offer| %>
+<li><%= offer.title %></li>
+<% end %>
+</ul>
 
+  <h2>MY BOOKINGS</h2>
+
+  <% current_user.bookings.each do |booking| %>
+  <div>
+    <h3><%= booking.offer.title %></h3>
+    <p>Service provider - <%= booking.offer.user.name %></p>
+    <p> Start time - <%= booking.start_time %></p>
+    <p> End time - <%= booking.end_time %></p>
+  </div>
+  <% end %>
+
+
+
+<p><%= link_to 'Create a new Offer', new_offer_path %></p>
+<p><%= link_to 'Go back to offers list', offers_path %></p>
+
+</div>

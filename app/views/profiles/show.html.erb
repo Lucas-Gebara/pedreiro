@@ -6,7 +6,7 @@
     <p class="card-text"><%=  %></p>
     </div>
     <div class="card portfolio align-self-end">
-    <%=cl_image_tag @user.avatar, height: 100, width: 100, crop: :fill %>
+    <%= cl_image_tag @user.avatar, height: 100, width: 100, crop: :fill %>
     <p><%=@user.portfolio.description%></p>
     </div>
     <a href="portfolio_path" class="btn btn-primary">Portfolio</a>

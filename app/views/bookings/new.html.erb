@@ -1,11 +1,11 @@
 <h1>New Booking</h1>
 
-<%= simple_form_for [@booking, @offer] do |f| %>
-  <%= f.label :start_time %>
-  <%= f.date_field :start_time %>
+<%= debug @offer %>
+<%= debug @booking %>
 
-  <%= f.label :end_time %>
-  <%= f.date_field :end_time %>
+<%= simple_form_for [@offer, @booking] do |f| %>
+  <%= f.input :start_time, html5: true, as: :date%>
+  <%= f.input :end_time, html5: true, as: :date%>
 
   <%= f.submit "Book now!", class: "btn btn-primary" %>
 <% end %>

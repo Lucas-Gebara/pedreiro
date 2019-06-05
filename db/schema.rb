@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_04_185656) do
+ActiveRecord::Schema.define(version: 2019_06_05_141537) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,6 +20,8 @@ ActiveRecord::Schema.define(version: 2019_06_04_185656) do
     t.bigint "offer_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.datetime "start_time"
+    t.datetime "end_time"
     t.index ["offer_id"], name: "index_bookings_on_offer_id"
     t.index ["user_id"], name: "index_bookings_on_user_id"
   end
@@ -27,8 +29,6 @@ ActiveRecord::Schema.define(version: 2019_06_04_185656) do
   create_table "offers", force: :cascade do |t|
     t.string "title"
     t.text "description"
-    t.date "start_time"
-    t.date "end_time"
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -59,8 +59,6 @@ ActiveRecord::Schema.define(version: 2019_06_04_185656) do
     t.datetime "remember_created_at"
     t.string "name"
     t.string "address"
-    t.string "cpf"
-    t.string "phone"
     t.text "description"
     t.boolean "pedreiro", default: false
     t.datetime "created_at", null: false

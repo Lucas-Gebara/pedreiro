@@ -9,6 +9,7 @@ class BookingsController < ApplicationController
     @offer = Offer.find(params[:offer_id])
     @user = current_user
     @booking.user = @user
+    @booking.offer = @offer
     if @booking.save
       redirect_to profile_path(@user)
     else
@@ -19,7 +20,7 @@ class BookingsController < ApplicationController
   private
 
   def booking_params
-    params.require(:booking).permit(:user_id, :offer_id)
+    params.require(:booking).permit(:user_id, :offer_id, :start_time, :end_time)
   end
 
 end

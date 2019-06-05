@@ -1,3 +1,4 @@
 <h1>Profile#show</h1>
-<p>Find me in app/views/profile/show.html.erb</p>
 <%= @user.offers.first.title %>
+<%= @user.portfolio.description %>
+<%= cl_image_tag @user.avatar, height: 300, width: 400, crop: :fill %>

@@ -13,5 +13,12 @@ class User < ApplicationRecord
   validates :cpf, presence: true, uniqueness: true
   validates :phone, presence: true, uniqueness: true
 
+  # Read on delegate methods
+  def avatar
+    portfolio.photo
+  end
 
+  def description
+    portfolio.description
+  end
 end

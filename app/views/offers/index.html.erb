@@ -1,9 +1,13 @@
-<h1>Offers Index</h1>
+<h1>Offers List</h1>
+
+<h2>Current user name: <%= current_user.name %></h2>
 
 <%= link_to 'Create a new Offer', new_offer_path %>
+
 <% @offers.each do |offer|%>
 <div>
-  <%= link_to offer.title, offer_path(offer) %>
-  <%= offer.description %>
+  <h3> Offer title: <%= link_to offer.title, offer_path(offer) %></h3>
+  <p>Description: <%= offer.description %></p>
+  <p>Offer owner: <%= offer.user.name %></p>
 </div>
 <% end %>

@@ -1,6 +1,14 @@
 <h1>Offers List</h1>
-
-
+<div>
+<%= form_tag offers_path, method: :get do %>
+  <%= text_field_tag :query,
+    params[:query],
+    class: "form-control",
+    placeholder: "Find a pedreiro"
+  %>
+<% end %>
+</div>
+<div>
 <% @offers.each do |offer|%>
 <div>
   <h3> Offer title: <%= link_to offer.title, offer_path(offer) %></h3>
@@ -8,3 +16,4 @@
   <p>Offer owner: <%= offer.user.name %></p>
 </div>
 <% end %>
+</div>

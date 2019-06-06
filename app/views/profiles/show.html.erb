@@ -39,6 +39,7 @@
           <p>Service provider - <%= booking.offer.user.name %></p>
           <p> Start time - <%= booking.start_time %></p>
           <p> End time - <%= booking.end_time %></p>
+          <p><%= (booking.end_time - booking.start_time).to_i %></p>
         </div>
       <% end %>
     </div>

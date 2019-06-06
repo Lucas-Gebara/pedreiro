@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
 
-  root to: "offers#index"
+  root to: "landing#show"
 
+  # get 'landing', to: 'landing#show'
+  get 'landing/show', to: 'landing#show'
   get 'profiles/:id', to: "profiles#show", as: :profile
   get 'users/:id/portfolio', to: 'portfolios#show'
 

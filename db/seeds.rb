@@ -5,6 +5,7 @@ if Rails.env.development?
 end
 
 puts "creating users"
+
 user1 = User.create!(
   name: "Walter White",
   password: "123456",

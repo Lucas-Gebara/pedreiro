@@ -16,4 +16,8 @@ class User < ApplicationRecord
   # validates :phone, presence: true, uniqueness: true
 
   # Read on delegate methods
+
+  def profilepicture
+    portfolio.photo
+  end
 end

@@ -6,11 +6,11 @@
     <p class="card-text"><%=  %></p>
     </div>
     <div class="card portfolio align-self-end">
+      <% if current_user.profilepicture != nil %>
     <%= cl_image_tag @user.portfolio.photo %>
     <p><%=@user.portfolio.description%></p>
-    </div>
     <a href="portfolio_path" class="btn btn-primary">Portfolio</a>
-  </div>
+    <% end %>
 </div>
 
 <div class="container">

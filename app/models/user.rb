@@ -18,6 +18,8 @@ class User < ApplicationRecord
   # Read on delegate methods
 
   def profilepicture
+    if portfolio
     portfolio.photo
+    end
   end
 end

@@ -1,4 +1,6 @@
 class User < ApplicationRecord
+  mount_uploader :avatar, AvatarUploader
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -14,11 +16,10 @@ class User < ApplicationRecord
   # validates :phone, presence: true, uniqueness: true
 
   # Read on delegate methods
-  def avatar
-    portfolio.photo
-  end
 
-  def description
-    portfolio.description
+  def profilepicture
+    if portfolio
+    portfolio.photo
+    end
   end
 end

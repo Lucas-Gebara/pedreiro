@@ -9,12 +9,14 @@
     </div>
 
     <div class="card portfolio align-self-end">
-      <%= cl_image_tag @user.avatar, height: 100, width: 100, crop: :fill %>
-      <p><%=@user.portfolio.description%></p>
-    </div>
-    <%= link_to 'Portfolio', portfolio_path,  :class => "btn btn-warning m-3"%>
 
-  </div>
+      <% if current_user.profilepicture != nil %>
+    <%= cl_image_tag @user.portfolio.photo %>
+    <p><%=@user.portfolio.description%></p>
+    <a href="portfolio_path" class="btn btn-primary">Portfolio</a>
+    <% end %>
+</div>
+
 
 
   <div class="container">

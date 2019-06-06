@@ -1,0 +1,17 @@
+
+<div class="banner">
+
+</div>
+
+<!-- First tree offers for the landing -->
+<div class="container">
+  <% @offers.each do |offer|  %>
+    <div class="card p-3 m-3">
+      <h2><%= offer.title.capitalize %></h2>
+      <p class="user_name"><%= offer.user.name.capitalize %></p>
+      <p><%= offer.description %></p>
+      <%= link_to 'book now', new_offer_booking_path(offer), :class => "btn btn-warning"%>
+    </div>
+  <% end %>
+</div>
+

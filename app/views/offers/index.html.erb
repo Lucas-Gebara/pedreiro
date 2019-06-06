@@ -1,10 +1,12 @@
-<h1>Offers List</h1>
 
-
-<% @offers.each do |offer|%>
-<div>
-  <h3> Offer title: <%= link_to offer.title, offer_path(offer) %></h3>
-  <p>Description: <%= offer.description %></p>
-  <p>Offer owner: <%= offer.user.name %></p>
+<div class="container">
+  <h1>Offers List</h1>
+  <% @offers.each do |offer|%>
+    <div class="card p-3 m-3">
+      <h3><%= link_to offer.title, offer_path(offer) %></h3>
+      <p><%= offer.user.name %></p>
+      <p><%= offer.description %></p>
+    </div>
+  <% end %>
 </div>
-<% end %>
+

@@ -9,10 +9,7 @@ user1 = User.create!(
   name: "vince",
   password: "hallooooo",
   email: "vince13@gmail.com",
-  portfolio: Portfolio.new(
-    description: 'Artsy pedreiro',
-    remote_photo_url: 'https://www.culturepartnership.eu/upload/news/58f7bc042bbfc.png'
-  )
+  portfolio: Portfolio.new(description: 'Artsy pedreiro', remote_photo_url: 'https://www.culturepartnership.eu/upload/news/58f7bc042bbfc.png')
 )
 
 user2 = User.create!(

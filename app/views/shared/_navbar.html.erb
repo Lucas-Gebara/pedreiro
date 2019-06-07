@@ -21,34 +21,34 @@
           <% if current_user.avatar_url %>
           <li class="nav-item dropdown">
 
-            <%= cl_image_tag current_user.avatar_url, :width => 50, :height => 50, :crop => "crop", class: "nav-link avatar dropdown-toggle" %>
+            <%= cl_image_tag current_user.avatar_url, width: "50px", height: "50px", :crop => "crop", class: "nav-link avatar dropdown-toggle" %>
 
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
               <%= link_to "Create new offer", new_offer_path, class: "dropdown-item" %>
 
-            <%= link_to "Offers list", offers_path, class: "dropdown-item" %>
-            <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+              <%= link_to "Offers list", offers_path, class: "dropdown-item" %>
+              <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
             </div>
           </li>
           <% else %>
-           <li class="nav-item dropdown">
+          <li class="nav-item dropdown">
 
-            <%= image_tag "fallback/facebook-picture.jpeg", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+            <%= image_tag "fallback/facebook-picture.jpeg", width: "50px", height: "50px", :crop => "crop", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
 
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
              <%= link_to "Create new offer", new_offer_path, class: "dropdown-item" %>
-            <%= link_to "Offers list", offers_path, class: "dropdown-item" %>
-            <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
-            </div>
-          </li>
-          <% end %>
-        </li>
-      </li>
-      <% else %>
-      <li class="nav-item">
-        <%= link_to "Login", new_user_session_path, class: "nav-link" %>
-      </li>
-      <% end %>
-    </ul>
-  </div>
+             <%= link_to "Offers list", offers_path, class: "dropdown-item" %>
+             <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+           </div>
+         </li>
+         <% end %>
+       </li>
+     </li>
+     <% else %>
+     <li class="nav-item">
+      <%= link_to "Login", new_user_session_path, class: "nav-link" %>
+    </li>
+    <% end %>
+  </ul>
+</div>
 </div>

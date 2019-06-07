@@ -46,11 +46,9 @@ user4 = User.create!(
   )
 )
 
-
-puts "creating offers"
 Offer.create!(
-  title: "Gardening",
-  description: "General gardening services with good quality.",
+  title: "High quality reforms",
+  description: "I am the best handman you will find. But my service is expensive.",
   user: user1
 )
 
@@ -73,8 +71,15 @@ Offer.create!(
 )
 
 Offer.create!(
-  title: "High quality reforms",
-  description: "I am the best handman you will find. But my service is expensive.",
+  title: "Gardening",
+  description: "Gardening services for fancy houses.",
+  user: user2
+)
+
+puts "creating offers"
+Offer.create!(
+  title: "Gardening",
+  description: "General gardening services with good quality and low cost.",
   user: user3
 )
 
@@ -85,8 +90,8 @@ Offer.create!(
 )
 
 Offer.create!(
-  title: "Construction",
-  description: "Professional with great experience in construction.",
+  title: "Gardening",
+  description: "Professional with great experience in gardening.",
   user: user4
 )
 

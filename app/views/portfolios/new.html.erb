@@ -7,7 +7,7 @@
   <div>
   <h3>Add a portfolio</h3>
 <%= simple_form_for(portfolio) do |f| %>
-  <%= f.input :photo %>
+  <%= f.file_field :photo %>
   <%= f.input :photo_cache, as: :hidden %>
   <%= f.input :description  %>
 <% end %>

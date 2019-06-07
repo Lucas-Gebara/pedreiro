@@ -1,6 +1,9 @@
 <!-- <h1 class="text-center">PROFILE</h1> -->
 
-  <div class="container">
+    <div class="container">
+     <div class="row justify-content-center">
+      <div class="col-12 col-lg-8">
+
 
     <div class="card p-3 m-3">
       <div class="m-3">
@@ -10,10 +13,6 @@
       <%= link_to 'Edit profile', edit_user_registration_path %>
     </div>
 
-
-
-
-
     <div class="card m-3 p-3">
       <% if current_user.profilepicture != nil %>
         <%= cl_image_tag @user.portfolio.photo %>
@@ -22,24 +21,20 @@
       <%= link_to 'Portfolio', portfolio_path,  :class => "btn btn-warning m-3"%>
     </div>
 
-<<<<<<< HEAD
-=======
 
+      <div class="card p-3 m-3">
+        <h2>MY BOOKINGS</h2>
+        <% current_user.bookings.each do |booking| %>
+          <div>
+            <h3><%= booking.offer.title %></h3>
+            <p>Service provider - <%= booking.offer.user.name %></p>
+            <p> Start time - <%= booking.start_time %></p>
+            <p> End time - <%= booking.end_time %></p>
+            <p><%= (booking.end_time - booking.start_time).to_i %></p>
+          </div>
+        <% end %>
+      </div>
 
-    <div class="card p-3 m-3">
-      <h2>MY BOOKINGS</h2>
-      <% current_user.bookings.each do |booking| %>
-        <div>
-          <h3><%= booking.offer.title %></h3>
-          <p>Service provider - <%= booking.offer.user.name %></p>
-          <p> Start time - <%= booking.start_time %></p>
-          <p> End time - <%= booking.end_time %></p>
-          <p><%= (booking.end_time - booking.start_time).to_i %></p>
-        </div>
-      <% end %>
-
->>>>>>> c2c8b856fe554747eb65a4049220753d0db75c82
-    <div class="d-flex">
       <div class="card p-3 m-3">
         <h2>MY OFFERS</h2>
         <ul>
@@ -50,12 +45,14 @@
       <%= link_to 'Create a new Offer', new_offer_path, :class => "btn btn-warning m-3"%>
       </div>
 
-
-
+      </div>
     </div>
-
-
   </div>
+
+
+
+
+
 
 
 

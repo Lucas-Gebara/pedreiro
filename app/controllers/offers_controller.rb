@@ -29,6 +29,7 @@ class OffersController < ApplicationController
 
   def destroy
     @offer = Offer.find(params[:id])
+
     @offer.destroy
     redirect_to profile_path
   end

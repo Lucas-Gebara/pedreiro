@@ -20,16 +20,15 @@
           <h3><%= @user.name %></h3>
           <p><%=@user.portfolio.description%></p>
         </div>
-        <% if current_user.profilepicture != nil %>
-        <%= cl_image_tag @user.portfolio.photo, width: "150", height: "100" %>
-        <p><%=@user.portfolio.description%></p>
-        <a href="portfolio_path" class="btn btn-warning">Portfolio</a>
-        <% end %>
-
       </div>
-      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalLong">
-        Change your portfolio
-      </button>
+
+      <div class="container d-flex">
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalLong">
+        Edit your profile
+        </button>
+      </div>
+
+
       <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
         <div class="modal-dialog" role="document">
           <div class="modal-content">
@@ -48,14 +47,7 @@
               <% end %>
 
 
-              <div class="card m-3 p-3">
-                <% if current_user.profilepicture != nil %>
-                <%= cl_image_tag @user.portfolio.photo %>
-                <p><%=@user.portfolio.description%></p>
-                <% end %>
-                <%= link_to 'Portfolio', portfolio_path,  :class => "btn btn-warning m-3"%>
 
-              </div>
             </div>
           </div>
         </div>
@@ -69,8 +61,8 @@
         <div>
           <h3><%= booking.offer.title %></h3>
           <p>Service provider - <%= booking.offer.user.name %></p>
-          <p> You booked his service from - <%= booking.start_time %></p>
-          <p> to - <%= booking.end_time %></p>
+          <p> You booked his service from - <%= booking.start_time.strftime('%m/%d/%Y') %></p>
+          <p> to - <%= booking.end_time.strftime('%m/%d/%Y') %></p>
           <p><%= link_to "Cancel booking", booking_path(booking),
           method: :delete,
           data: { confirm: "Are you sure?" } %></p>
@@ -78,7 +70,6 @@
       </div>
       <% end %>
 
-      <div class="d-flex">
 
         <div class="card p-3 m-3">
           <h2>MY OFFERS</h2>
@@ -93,7 +84,6 @@
           <%= link_to 'Create a new Offer', new_offer_path, :class => "btn btn-warning m-3"%>
         </div>
 
-      </div>
     </div>
 
 

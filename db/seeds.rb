@@ -84,7 +84,7 @@ Offer.create!(
 )
 
 Offer.create!(
-  title: "Pumbling work",
+  title: "Plumbing work",
   description: "If you need to have some pumbling work done, call me!",
   user: user3
 )

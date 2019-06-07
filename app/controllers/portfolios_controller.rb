@@ -10,13 +10,14 @@ class PortfoliosController < ApplicationController
   #   @portfolio = Portfolio.find(params[:id])
   # end
 
-  # def update
-  #   if @portfolio.update(portfolio_params)
-  #     redirect_to portfolio_path(@portfolio)
-  #   else
-  #     render :edit
-  #   end
-  # end
+  def update
+    @portfolio = current_user.portfolio
+    if @portfolio.update(portfolio_params)
+      redirect_to profile_path(current_user)
+    else
+      render "portfolios/#{current_user.id}"
+    end
+  end
 
   def new
     @user = User.find(params[:user_id])

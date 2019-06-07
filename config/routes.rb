@@ -9,7 +9,7 @@ Rails.application.routes.draw do
 
   devise_for :users
 
-  resources :portfolios, only: [:destroy]
+  resources :portfolios, only: [:update, :destroy]
 
   resources :offers do
     resources :bookings, except: [:destroy]

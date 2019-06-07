@@ -5,7 +5,11 @@
     <div class="card p-3 m-3">
       <div class="d-flex align-items-center m-3">
         <div>
-          <%= cl_image_tag @user.avatar, height: 100, width: 100, crop: :thumb, radius: 'max'%>
+          <% if current_user.avatar_url != nil %>
+          <%= cl_image_tag current_user.avatar_url, height: 100, width: 100, crop: :thumb, radius: 'max'%>
+          <% else %>
+          <%= image_tag "fallback/facebook-picture.jpeg" %>
+          <% end %>
         </div>
 
         <div class="m-3">
@@ -13,19 +17,35 @@
           <p><%=@user.portfolio.description%></p>
         </div>
      <% if current_user.profilepicture != nil %>
-    <%= cl_image_tag @user.portfolio.photo %>
+    <%= cl_image_tag @user.portfolio.photo, width: "150", height: "100" %>
     <p><%=@user.portfolio.description%></p>
     <a href="portfolio_path" class="btn btn-primary">Portfolio</a>
-    <% end %>  
+    <% end %>
     </div>
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalLong">
+    Change your portfolio
+</button>
+<div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+      <%= simple_form_for (@portfolio) do |p| %>
+  <%= p.file_field :photo%>
+  <%= p.hidden_field :photo_cache %>
+  <%= p.input :description %>
+  <%= p.submit "change portfolio", class: "btn btn-primary" %>
+<% end %>
 
-
-
- </div>
-
-      <%= link_to 'Portfolio', portfolio_path,  :class => "btn btn-warning m-3"%>
     </div>
-
+    </div>
+  </div>
+</div>
 
 
     <div class="card p-3 m-3">
@@ -34,9 +54,8 @@
         <div>
           <h3><%= booking.offer.title %></h3>
           <p>Service provider - <%= booking.offer.user.name %></p>
-          <p> Start time - <%= booking.start_time %></p>
-          <p> End time - <%= booking.end_time %></p>
-          <p><%= (booking.end_time - booking.start_time).to_i %></p>
+          <p> You booked his service from - <%= booking.start_time %></p>
+          <p> to - <%= booking.end_time %></p>
         </div>
       <% end %>
 

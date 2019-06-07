@@ -1,15 +1,18 @@
-<h1>Service: <%= @offer.title %></h1>
-<h1>Professional: <%= @offer.user.name %></h1>
 
 <div class="container">
   <div class="card p-3 m-3">
-    <h1>New Booking</h1>
+    <h1><%= @offer.title %></h1>
+    <h4>Professional: <%= @offer.user.name %></h4>
+  </div>
+
+  <div class="card p-3 m-3">
+    <h4>New Booking</h4>
     <%= simple_form_for [@offer, @booking] do |f| %>
-      <%= f.input :start_time, label: 'Start of service', html5: true, as: :date%>
-      <%= f.input :end_time, label: 'End of service', html5: true, as: :date%>
+      <%= f.input :start_time, label: 'When do you wish to start?', html5: true, as: :date%>
+      <%= f.input :end_time, label: 'When should it end?', html5: true, as: :date%>
 
       <%= f.submit "Book now!", :class => "btn btn-warning" %>
     <% end %>
-
   </div>
+
 </div>
